@@ -56,6 +56,8 @@ table {
 :root {
     --white-accent: white;
     --gray-accent: whitesmoke;
+	--blue-accent: #318CE7;
+	--green-accent: #74992E;
 }
 
 /* Base Styling */
@@ -63,4 +65,64 @@ table {
 body {
     font-size: 16px;
     font-family: Garamond, sans-serif;
+	padding: 4rem;
 }
+
+button {
+	font-size: 16px;
+    font-family: Garamond, sans-serif;
+	border: none;
+}
+
+/* Drop-Down Menu */
+
+.drop-down-container {
+	display: flex;
+	flex-direction: column;
+
+	max-width: 15ch;
+	cursor: pointer;
+}
+
+.drop-down-title {
+	padding: 1rem 2rem;
+	background-color: var(--gray-accent);
+}
+
+.drop-down-menu {
+	display: none;
+	background-color: var(--gray-accent);
+}
+
+.drop-down-menu > li {
+	padding: 1rem 2rem;
+}
+
+.drop-down-title:hover, .drop-down-menu > li:hover {
+	background-color: var(--blue-accent);
+	transition: 0.5s ease-in-out;
+}
+
+.drop-down-menu.reveal {
+	display: block;
+	animation: fadeIn 0.5s ease-in-out;
+	transform-origin: top;
+}
+  
+@keyframes fadeIn {
+	0% {
+		transform: scaleY(0);
+		opacity: 0;
+	}
+
+	70% {
+		transform: scaleY(1.1);
+	}
+
+	100% {
+		transform: scaleY(1);
+		opacity: 1;
+	}
+}
+
+/* Image Slider */
