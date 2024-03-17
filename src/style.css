@@ -54,7 +54,6 @@ table {
 /* Variable Declaration */
 
 :root {
-    --white-accent: white;
     --gray-accent: whitesmoke;
 	--blue-accent: #318CE7;
 	--green-accent: #74992E;
@@ -65,7 +64,12 @@ table {
 body {
     font-size: 16px;
     font-family: Garamond, sans-serif;
-	padding: 4rem;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2rem;
+	padding: 2rem;
 }
 
 button {
@@ -74,13 +78,19 @@ button {
 	border: none;
 }
 
+*:focus {
+	text-decoration: underline !important;
+	outline: none;
+}
+
 /* Drop-Down Menu */
 
 .drop-down-container {
 	display: flex;
 	flex-direction: column;
+	text-align: center;
 
-	max-width: 15ch;
+	width: 20ch;
 	cursor: pointer;
 }
 
@@ -105,11 +115,11 @@ button {
 
 .drop-down-menu.reveal {
 	display: block;
-	animation: fadeIn 0.5s ease-in-out;
+	animation: expand 0.5s ease-in-out;
 	transform-origin: top;
 }
   
-@keyframes fadeIn {
+@keyframes expand {
 	0% {
 		transform: scaleY(0);
 		opacity: 0;
@@ -126,3 +136,112 @@ button {
 }
 
 /* Image Slider */
+
+.slide-container {
+	position: relative;
+	max-width: fit-content;
+	color: white;
+}
+
+.slide-container .slide {
+	display: none;
+}
+
+.slide-container .slide .number {
+	position: absolute;
+	left: 0.5rem;
+	top: 0.5rem;
+}
+
+.slide-container .slide img {
+	display: block;
+	max-width: 100vw;
+	max-height: 60vh;
+	width: auto;
+	height: auto;
+}
+
+.slide-container .slide .caption {
+	position: absolute;
+	bottom: 3rem;
+	left: 50%;
+	transform: translate(-50%, 0);
+}
+
+.slide-container .slide .caption a {
+	color: white;
+	text-decoration: none;
+}
+
+.slide-container .slide .caption a:hover {
+	text-decoration: underline;
+}
+
+.slide-container .slide.reveal {
+	display: block;
+	animation: fadeIn 1s ease-in-out;
+}
+  
+@keyframes fadeIn {
+	from {
+		opacity: 0.2;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+/* Image Slider - Prev / Next Arrows */
+
+.slide-container .arrow {
+	position: absolute;
+	top: 0;
+	height: 100%;
+	padding: 0 0.5rem;
+	color: black;
+
+	display: flex;
+	align-items: center;
+}
+
+.slide-container .arrow:hover {
+	cursor: pointer;
+	background-color: rgba(0, 0, 0, 0.5);
+	transition: 0.5s ease-in-out;
+}
+
+.slide-container .arrow#next {
+	right: 0;
+}
+
+/* Image Slider - Slide Dots */
+
+.slide-container .dot-container {
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	transform: translate(-50%, 0);
+
+	display: flex;
+	gap: 1rem;
+	padding: 1rem;
+}
+
+.slide-container .dot-container .dot {
+	display: block;
+	height: 1rem;
+	width: 1rem;
+	border-radius: 50%;
+	background-color: rgba(0, 0, 0, 0.8);
+}
+
+.slide-container .dot-container .dot.active {
+	background-color: rgba(116, 153, 46, 0.8);
+}
+
+.slide-container .dot-container .dot:hover {
+	cursor: pointer;
+	background-color: rgba(116, 153, 46, 0.8);
+	transition: 0.25s ease-in-out;
+}
