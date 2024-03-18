@@ -67,6 +67,7 @@ body {
 
 	display: flex;
 	flex-direction: column;
+	align-items: center;
 }
 
 button {
@@ -85,6 +86,8 @@ button {
 nav {
 	display: flex;
 	justify-content: space-between;
+
+	align-self: stretch;
 	background-color: var(--gray-accent);
 }
 
@@ -197,8 +200,7 @@ nav .nav-container .nav-item:hover {
 }
 
 .slide-container .slide.reveal {
-	display: flex;
-	justify-content: center;
+	display: block;
 	animation: fadeIn 1s ease-in-out;
 }
   
