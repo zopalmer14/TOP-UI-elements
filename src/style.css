@@ -55,7 +55,7 @@ table {
 
 :root {
     --gray-accent: whitesmoke;
-	--blue-accent: #318CE7;
+	--green-accent: #318CE7;
 	--green-accent: #74992E;
 }
 
@@ -67,9 +67,6 @@ body {
 
 	display: flex;
 	flex-direction: column;
-	align-items: center;
-	gap: 2rem;
-	padding: 2rem;
 }
 
 button {
@@ -83,9 +80,32 @@ button {
 	outline: none;
 }
 
-/* Drop-Down Menu */
+/* Nav Styling */
+
+nav {
+	display: flex;
+	justify-content: space-between;
+	background-color: var(--gray-accent);
+}
+
+nav .nav-container {
+	display: flex;
+}
+
+nav .nav-title, nav .nav-container .nav-item {
+	padding: 1rem 2rem;
+}
+
+nav .nav-container .nav-item:hover {
+	cursor: pointer;
+	background-color: var(--green-accent);
+	transition: 0.5s ease-in-out;
+}
+
+/* Nav Styling - Drop-Down Menu */
 
 .drop-down-container {
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	text-align: center;
@@ -101,19 +121,25 @@ button {
 
 .drop-down-menu {
 	display: none;
+	width: 100%;
 	background-color: var(--gray-accent);
 }
 
 .drop-down-menu > li {
 	padding: 1rem 2rem;
+	z-index: 2;
 }
 
 .drop-down-title:hover, .drop-down-menu > li:hover {
-	background-color: var(--blue-accent);
+	background-color: var(--green-accent);
 	transition: 0.5s ease-in-out;
 }
 
 .drop-down-menu.reveal {
+	position: absolute;
+	top: 100%;
+	z-index: 2;
+	
 	display: block;
 	animation: expand 0.5s ease-in-out;
 	transform-origin: top;
@@ -123,10 +149,6 @@ button {
 	0% {
 		transform: scaleY(0);
 		opacity: 0;
-	}
-
-	70% {
-		transform: scaleY(1.1);
 	}
 
 	100% {
@@ -139,7 +161,6 @@ button {
 
 .slide-container {
 	position: relative;
-	max-width: fit-content;
 	color: white;
 }
 
@@ -156,9 +177,7 @@ button {
 .slide-container .slide img {
 	display: block;
 	max-width: 100vw;
-	max-height: 60vh;
-	width: auto;
-	height: auto;
+	max-height: calc(100vh - 50px);
 }
 
 .slide-container .slide .caption {
@@ -178,7 +197,8 @@ button {
 }
 
 .slide-container .slide.reveal {
-	display: block;
+	display: flex;
+	justify-content: center;
 	animation: fadeIn 1s ease-in-out;
 }
   
